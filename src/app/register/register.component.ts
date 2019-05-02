@@ -57,16 +57,16 @@ export class RegisterComponent implements OnInit {
           if (data) {
             if (data.status == true) {
               Swal.fire({
-                type: 'success',
-                title: 'สาเร็จ',
-                text: 'Register success!'
+                type: "success",
+                title: "สาเร็จ",
+                text: "Register success!"
               });
               this.router.navigate(["/home"]);
             } else {
               Swal.fire({
-                type: 'error',
-                title: 'แจ้งเตือน',
-                text: 'Register success!'
+                type: "error",
+                title: "แจ้งเตือน",
+                text: "Register success!"
               });
             }
           } //(property) RegisterComponent.submitting: Boolean
