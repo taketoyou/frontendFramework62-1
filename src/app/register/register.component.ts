@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { BackendService } from "../backend.service";
-
+import Swal from "sweetalert2";
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
@@ -11,15 +11,15 @@ import { BackendService } from "../backend.service";
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitting: Boolean = false;
-  constructor(
+  constructor(Install Sweet Alert.
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private backendService: BackendService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    // เป็น initial form ค่าฟอร์มเริ่มต้น
+    // ???? initial form ????????????????
     this.registerForm = this.formBuilder.group({
       rank: ["", Validators.required],
       first_name: ["", Validators.required],
@@ -32,13 +32,13 @@ export class RegisterComponent implements OnInit {
   }
 
   get f() {
-    // เข้าถึงค่าของฟอร์ม
+    // ??????????????????
     return this.registerForm.controls;
   }
 
   onSubmit() {
     this.submitting = true;
-    // เมื่อเรากดปุ่ม register ให้มาที่ ฟังก์ชั่นนี้
+    // ?????????????? register ???????? ????????????
     console.log(this.f.rank.value);
 
     if (!this.registerForm.invalid) {
@@ -57,24 +57,31 @@ export class RegisterComponent implements OnInit {
             if (data.status == true) {
               Swal.fire({
                 type: "success",
-                title: "สาเร็จ",
-                text: "Register success!"
+                title: "??????",
+                text: "register success!"
               });
               this.router.navigate(["/home"]);
             } else {
+              console.log(data);
+
               Swal.fire({
                 type: "error",
-                title: "แจ้งเตือน",
-                text: "Register success!"
+                title: "?????????",
+                text: data.message
               });
             }
-          } //(property) RegisterComponent.submitting: Boolean
+          }
           this.submitting = false;
         });
     } else {
-      alert("Invalid!"); // show mesage กรณีกรอกข้อมูลไม่ครบใน input
+      Swal.fire({
+        type: "error",
+        title: "?????????",
+        text: "????????????????!"
+      });
+
       this.submitting = false;
     }
   }
 }
-// เข้าสู่ Front-End
+// ??????? Front-End
