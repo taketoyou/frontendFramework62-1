@@ -55,10 +55,18 @@ export class RegisterComponent implements OnInit {
         .subscribe(data => {
           if (data) {
             if (data.status == true) {
-              alert("Register success!");
+              Swal.fire({
+                type: "success",
+                title: "สาเร็จ",
+                text: "Register success!"
+              });
               this.router.navigate(["/home"]);
             } else {
-              alert(data.message);
+              Swal.fire({
+                type: "error",
+                title: "แจ้งเตือน",
+                text: "Register success!"
+              });
             }
           } //(property) RegisterComponent.submitting: Boolean
           this.submitting = false;
