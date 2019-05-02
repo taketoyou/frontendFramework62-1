@@ -11,12 +11,12 @@ import Swal from "sweetalert2";
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitting: Boolean = false;
-  constructor(Install Sweet Alert.
+  constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private backendService: BackendService
-  ) { }
+  ) {}
 
   ngOnInit() {
     // ???? initial form ????????????????
