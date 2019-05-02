@@ -44,4 +44,16 @@ export class BackendService {
       )
       .pipe();
   }
+
+  countAllUser() {
+    return this.http
+      .get<any>(authServiceUrl + "user/list-count", httpOptions)
+      .pipe();
+  }
+  getListUser(pageNumber: number) {
+    return this.http
+      .get<any>(authServiceUrl + "user/list/" + pageNumber, httpOptions)
+      .pipe();
+  }
+  2;
 }
